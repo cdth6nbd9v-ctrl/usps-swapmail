@@ -10,49 +10,24 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="script.js" defer></script>
 </head>
-    <script>
-function showLoginModal() {
-    alert("Login modal opened!");
-}
-
-function hideLoginModal() {
-    // For now just alert
-    alert("Modal closed");
-}
-</script>
-    <!-- Login Modal -->
-<div id="login-modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close" onclick="hideLoginModal()" style="float:right; font-size:28px; cursor:pointer;">&times;</span>
-        <h2>Login / Sign Up</h2>
-        <p>Demo Mode</p>
-        <button class="btn-primary" onclick="fakeLogin()" style="width:100%; padding:12px;">Login as Demo User</button>
-    </div>
-</div>
 <body>
     <!-- Navigation -->
-<nav class="navbar">
-    <div class="logo">
-        <span class="usps-blue">📬</span> SwapMail
-    </div>
-    <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#how-it-works">How it Works</a></li>
-        <li><a href="#map-section">Live Map</a></li>
-        <li><a href="#find-transfers">Find Transfers</a></li>
-        <li><a href="#post-request">Post Request</a></li>
-        <li><a href="#about">About</a></li>
-    </ul>
-    <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
-</nav>
+    <nav class="navbar">
+        <div class="logo">
+            <span class="usps-blue">📬</span> SwapMail
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#map-section">Live Map</a></li>
+            <li><a href="#find-transfers">Find Transfers</a></li>
+            <li><a href="#post-request">Post Request</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
+    </nav>
 
-<script>
-function showLoginModal() {
-    alert("✅ Login button is working now!");
-}
-</script>
-
-    <!-- Hero Landing Page -->
+    <!-- Hero -->
     <section id="home" class="hero">
         <div class="hero-content">
             <h1 class="hero-title">Find Your Perfect USPS Mutual Transfer</h1>
@@ -62,98 +37,29 @@ function showLoginModal() {
                 <button class="btn-secondary large" onclick="document.getElementById('find-transfers').scrollIntoView({ behavior: 'smooth' })">Browse Available Swaps</button>
             </div>
         </div>
-        
-        <!-- Mail Truck Image -->
         <div class="animation-container">
-            <img src="mail-truck.jpeg" alt="USPS Mail Truck with Luggage" style="max-width: 560px; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <img src="mail-truck.png" alt="USPS Mail Truck" style="max-width: 560px; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
     </section>
 
-    <!-- Live Map Section -->
-    <section id="map-section" class="section">
-        <h2>Live Transfer Map</h2>
-        <p class="map-subtitle">See where carriers want to move across the country. Click markers for details.</p>
-        <div id="transfer-map" style="height: 500px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></div>
-    </section>
+    <!-- Other sections (map, how it works, etc.) -->
+    <!-- (Keep your existing sections here) -->
 
-    <!-- How it Works -->
-    <section id="how-it-works" class="section">
-        <h2>How Mutual Transfers Work</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Post Your Request</h3>
-                <p>Share your current location and desired swap city/route.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Match with Carriers</h3>
-                <p>Browse verified USPS workers looking for the same swap.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Connect & Coordinate</h3>
-                <p>Chat securely and handle official paperwork together.</p>
-            </div>
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" onclick="hideLoginModal()" style="float:right; font-size:28px; cursor:pointer;">×</span>
+            <h2>Login / Sign Up</h2>
+            
+            <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:8px 0;">
+            <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:8px 0;">
+            
+            <button class="btn-primary" style="width:100%; margin:10px 0;" onclick="handleAuth()">Login / Sign Up</button>
+            
+            <p id="auth-message" style="text-align:center; margin-top:10px;"></p>
         </div>
-    </section>
-
-    <!-- Find Transfers -->
-    <section id="find-transfers" class="section bg-light">
-        <h2>Available Mutual Transfers</h2>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search by city, state, or route...">
-            <button onclick="filterTransfers()">Search</button>
-        </div>
-        <div id="transfers-list" class="transfers-grid">
-            <!-- Populated by JS -->
-        </div>
-    </section>
-
-    <!-- Post Request -->
-    <section id="post-request" class="section">
-        <h2>Post Your Transfer Request</h2>
-        <form id="transfer-form" class="transfer-form">
-            <div class="form-group">
-                <label>Current Location (City, State)</label>
-                <input type="text" id="current-loc" placeholder="e.g. Chicago, IL" required>
-            </div>
-            <div class="form-group">
-                <label>Desired Location (City, State)</label>
-                <input type="text" id="desired-loc" placeholder="e.g. Denver, CO" required>
-            </div>
-            <div class="form-group">
-                <label>Route/Position Details</label>
-                <textarea id="details" placeholder="Carrier, clerk, etc. Preferred routes..."></textarea>
-            </div>
-            <div class="form-group">
-                <label>Contact Email or Phone</label>
-                <input type="text" id="contact" placeholder="your.email@usps.gov or phone" required>
-            </div>
-            <button type="submit" class="btn-primary">Submit Request</button>
-        </form>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section bg-light">
-        <h2>About SwapMail</h2>
-        <p>Built by USPS carriers, for USPS carriers. We make finding mutual transfers simple and community-driven. Not affiliated with USPS, but 100% focused on helping you get where you want to be.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 SwapMail - USPS Mutual Transfer Community</p>
-        <p>Disclaimer: This is a fan-built tool. Always follow official USPS mutual transfer policies.</p>
-    </footer>
-
-    <<!-- Login Modal -->
-<div id="login-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="hideLoginModal()">×</span>
-        <h2>Login / Sign Up</h2>
-        <button onclick="alert('Button works!')">Test Button</button>
     </div>
-</div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </body>
 </html>
