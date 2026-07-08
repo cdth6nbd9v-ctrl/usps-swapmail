@@ -24,7 +24,7 @@
             <li><a href="#post-request">Post Request</a></li>
             <li><a href="#about">About</a></li>
         </ul>
-        <button class="btn-primary" onclick="document.getElementById('login-modal').style.display = 'flex'">Login / Sign Up</button>
+        <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
     </nav>
 
     <!-- Hero -->
@@ -42,20 +42,20 @@
         </div>
     </section>
 
-    <!-- Other sections (map, how it works, etc.) -->
-    <!-- (Keep your existing sections here) -->
+    <!-- Map, How it Works, etc. sections (add your existing ones here) -->
 
-<!-- Login Modal -->
-<div id="login-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: none; align-items: center; justify-content: center;">
-    <div style="background: white; padding: 30px; border-radius: 12px; width: 90%; max-width: 420px; box-shadow: 0 15px 35px rgba(0,0,0,0.3);">
-        <span onclick="hideLoginModal()" style="float:right; font-size:28px; cursor:pointer;">×</span>
-        <h2>Login / Sign Up</h2>
-        
-        <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:10px 0;">
-        <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0;">
-        
-        <button onclick="handleAuth()" style="width:100%; padding:12px; background:#003087; color:white; border:none; border-radius:8px;">Login / Sign Up</button>
-        
-        <p id="auth-message" style="text-align:center; margin-top:10px;"></p>
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideLoginModal()">×</span>
+            <h2>Login / Sign Up</h2>
+            <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:10px 0;">
+            <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0;">
+            <button class="btn-primary" style="width:100%; margin:10px 0;" onclick="handleAuth()">Login / Sign Up</button>
+            <p id="auth-message" style="text-align:center; margin-top:10px;"></p>
+        </div>
     </div>
-</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</body>
+</html>
