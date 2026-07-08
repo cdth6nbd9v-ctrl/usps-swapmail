@@ -22,7 +22,26 @@ function hideLoginModal() {
 </script>
 <body>
     <!-- Navigation -->
-<button onclick="alert('Hello from button!')">TEST BUTTON</button>
+<nav class="navbar">
+    <div class="logo">
+        <span class="usps-blue">📬</span> SwapMail
+    </div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#how-it-works">How it Works</a></li>
+        <li><a href="#map-section">Live Map</a></li>
+        <li><a href="#find-transfers">Find Transfers</a></li>
+        <li><a href="#post-request">Post Request</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+    <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
+</nav>
+
+<script>
+function showLoginModal() {
+    alert("✅ Login button is working now!");
+}
+</script>
 
     <!-- Hero Landing Page -->
     <section id="home" class="hero">
