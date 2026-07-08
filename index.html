@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USPS Mutual Transfers - Swap & Go</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="usps-blue">📬</span> SwapMail
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#find-transfers">Find Transfers</a></li>
+            <li><a href="#post-request">Post Request</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
+    </nav>
+
+    <!-- Hero Landing Page -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Find Your Perfect USPS Mutual Transfer</h1>
+            <p class="hero-subtitle">Connect with fellow carriers ready to swap locations. Faster, easier, and more fun than the official process!</p>
+            <div class="cta-buttons">
+                <button class="btn-primary large" onclick="document.getElementById('post-request').scrollIntoView({ behavior: 'smooth' })">Post Your Transfer Request</button>
+                <button class="btn-secondary large" onclick="document.getElementById('find-transfers').scrollIntoView({ behavior: 'smooth' })">Browse Available Swaps</button>
+            </div>
+        </div>
+        
+        <!-- Animation Container -->
+        <div class="animation-container">
+            <div class="mail-carrier left">
+                <div class="carrier-figure">
+                    <div class="head">👨‍✈️</div>
+                    <div class="body">📬</div>
+                </div>
+                <div class="arm left-arm">🤚</div>
+            </div>
+            
+            <div class="letter-exchange">
+                <div id="letter" class="letter">✉️</div>
+            </div>
+            
+            <div class="mail-carrier right">
+                <div class="carrier-figure">
+                    <div class="head">👩‍✈️</div>
+                    <div class="body">📬</div>
+                </div>
+                <div class="arm right-arm">🤚</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section id="how-it-works" class="section">
+        <h2>How Mutual Transfers Work</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Post Your Request</h3>
+                <p>Share your current location and desired swap city/route.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Match with Carriers</h3>
+                <p>Browse verified USPS workers looking for the same swap.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Connect & Coordinate</h3>
+                <p>Chat securely and handle official paperwork together.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Find Transfers -->
+    <section id="find-transfers" class="section bg-light">
+        <h2>Available Mutual Transfers</h2>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search by city, state, or route...">
+            <button onclick="filterTransfers()">Search</button>
+        </div>
+        <div id="transfers-list" class="transfers-grid">
+            <!-- Populated by JS -->
+        </div>
+    </section>
+
+    <!-- Post Request -->
+    <section id="post-request" class="section">
+        <h2>Post Your Transfer Request</h2>
+        <form id="transfer-form" class="transfer-form">
+            <div class="form-group">
+                <label>Current Location (City, State)</label>
+                <input type="text" id="current-loc" placeholder="e.g. Chicago, IL" required>
+            </div>
+            <div class="form-group">
+                <label>Desired Location (City, State)</label>
+                <input type="text" id="desired-loc" placeholder="e.g. Denver, CO" required>
+            </div>
+            <div class="form-group">
+                <label>Route/Position Details</label>
+                <textarea id="details" placeholder="Carrier, clerk, etc. Preferred routes..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Contact Email or Phone</label>
+                <input type="text" id="contact" placeholder="your.email@usps.gov or phone" required>
+            </div>
+            <button type="submit" class="btn-primary">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section bg-light">
+        <h2>About SwapMail</h2>
+        <p>Built by USPS carriers, for USPS carriers. We make finding mutual transfers simple and community-driven. Not affiliated with USPS, but 100% focused on helping you get where you want to be.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SwapMail - USPS Mutual Transfer Community</p>
+        <p>Disclaimer: This is a fan-built tool. Always follow official USPS mutual transfer policies.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideLoginModal()">&times;</span>
+            <h2>USPS Worker Login</h2>
+            <input type="text" placeholder="USPS Email">
+            <input type="password" placeholder="Password">
+            <button class="btn-primary" onclick="fakeLogin()">Login</button>
+            <p>New? <a href="#">Sign up (USPS verification required)</a></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</body>
+</html>
