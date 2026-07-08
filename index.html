@@ -20,6 +20,15 @@ function hideLoginModal() {
     alert("Modal closed");
 }
 </script>
+    <!-- Login Modal -->
+<div id="login-modal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="hideLoginModal()" style="float:right; font-size:28px; cursor:pointer;">&times;</span>
+        <h2>Login / Sign Up</h2>
+        <p>Demo Mode</p>
+        <button class="btn-primary" onclick="fakeLogin()" style="width:100%; padding:12px;">Login as Demo User</button>
+    </div>
+</div>
 <body>
     <!-- Navigation -->
 <nav class="navbar">
