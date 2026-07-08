@@ -8,6 +8,7 @@ let currentUser = null;
 function showLoginModal() {
     document.getElementById('login-modal').style.display = 'flex';
 }
+}
 
 function hideLoginModal() {
     document.getElementById('login-modal').style.display = 'none';
