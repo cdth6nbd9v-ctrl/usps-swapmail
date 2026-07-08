@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -23,7 +24,9 @@
             <li><a href="#post-request">Post Request</a></li>
             <li><a href="#about">About</a></li>
         </ul>
-        <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
+        <div id="auth-buttons">
+            <button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>
+        </div>
     </nav>
 
     <!-- Hero Landing Page -->
@@ -39,7 +42,7 @@
         
         <!-- Mail Truck Image -->
         <div class="animation-container">
-            <img src="mail-truck.jpeg" alt="USPS Mail Truck with Luggage" style="max-width: 560px; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <img src="mail-truck.png" alt="USPS Mail Truck with Luggage" style="max-width: 560px; height: auto; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
         </div>
     </section>
 
@@ -124,11 +127,14 @@
     <div id="login-modal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="hideLoginModal()">&times;</span>
-            <h2>USPS Worker Login</h2>
-            <input type="text" placeholder="USPS Email">
-            <input type="password" placeholder="Password">
-            <button class="btn-primary" onclick="fakeLogin()">Login</button>
-            <p>New? <a href="#">Sign up (USPS verification required)</a></p>
+            <h2 id="modal-title">Welcome to SwapMail</h2>
+            
+            <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:10px 0;">
+            <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0;">
+            
+            <button class="btn-primary" style="width:100%; margin:10px 0;" onclick="handleAuth()">Login / Sign Up</button>
+            
+            <p id="auth-message" style="text-align:center; margin-top:10px; color:#333;"></p>
         </div>
     </div>
 
