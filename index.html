@@ -37,43 +37,40 @@
             </div>
         </div>
         
-        <!-- Improved SVG Animation -->
+        <!-- Mail Truck SVG Animation -->
         <div class="animation-container">
-            <svg width="520" height="320" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg" id="hero-svg">
-                <!-- Left Mail Carrier (Male) -->
-                <g id="left-carrier">
-                    <!-- Body -->
-                    <rect x="80" y="120" width="95" height="135" rx="25" fill="#1e40af"/>
-                    <!-- Head -->
-                    <circle cx="125" cy="105" r="42" fill="#fcd34d"/>
-                    <!-- Hat -->
-                    <rect x="85" y="60" width="80" height="32" rx="8" fill="#1e3a8a"/>
-                    <!-- Left Arm -->
-                    <line x1="145" y1="165" x2="85" y2="205" stroke="#fcd34d" stroke-width="34" stroke-linecap="round"/>
-                </g>
-
-                <!-- Right Mail Carrier (Female) -->
-                <g id="right-carrier">
-                    <!-- Body -->
-                    <rect x="325" y="120" width="95" height="135" rx="25" fill="#e11d48"/>
-                    <!-- Head -->
-                    <circle cx="375" cy="105" r="42" fill="#fcd34d"/>
-                    <!-- Hat -->
-                    <rect x="335" y="60" width="80" height="32" rx="8" fill="#9f1239"/>
-                    <!-- Right Arm -->
-                    <line x1="355" y1="165" x2="425" y2="205" stroke="#fcd34d" stroke-width="34" stroke-linecap="round"/>
-                </g>
-
-                <!-- Letter -->
+            <svg width="560" height="300" viewBox="0 0 560 300" fill="none" xmlns="http://www.w3.org/2000/svg" id="hero-svg">
+                <!-- Truck Body -->
+                <rect x="60" y="130" width="320" height="95" rx="18" fill="#1e40af"/>
+                <rect x="360" y="155" width="95" height="70" rx="12" fill="#1e40af"/>
+                
+                <!-- Cab -->
+                <rect x="380" y="115" width="85" height="55" rx="10" fill="#1e40af"/>
+                
+                <!-- Wheels -->
+                <circle cx="150" cy="225" r="35" fill="#111827"/>
+                <circle cx="150" cy="225" r="20" fill="#e5e7eb"/>
+                <circle cx="310" cy="225" r="35" fill="#111827"/>
+                <circle cx="310" cy="225" r="20" fill="#e5e7eb"/>
+                
+                <!-- USPS Text -->
+                <rect x="100" y="150" width="110" height="38" fill="#fff" rx="4"/>
+                <text x="115" y="175" font-size="26" fill="#b91c1c" font-weight="bold">USPS</text>
+                
+                <!-- Luggage on top -->
+                <rect x="110" y="105" width="85" height="32" fill="#4f46e5" rx="6"/>
+                <rect x="205" y="98" width="78" height="36" fill="#7c3aed" rx="6"/>
+                
+                <!-- Moving Letter -->
                 <g id="letter">
-                    <rect x="215" y="145" width="92" height="68" rx="8" fill="#f8fafc" stroke="#b91c1c" stroke-width="14"/>
-                    <path d="M220 165 L260 195 L305 165" fill="#f59e0b"/>
+                    <rect x="430" y="145" width="65" height="52" rx="8" fill="#f8fafc" stroke="#b91c1c" stroke-width="12"/>
+                    <path d="M435 165 L465 190 L490 165" fill="#f59e0b"/>
                 </g>
             </svg>
         </div>
     </section>
 
-    <!-- Live Map Section -->
+    <!-- Live Map -->
     <section id="map-section" class="section">
         <h2>Live Transfer Map</h2>
         <p class="map-subtitle">See where carriers want to move across the country. Click markers for details.</p>
