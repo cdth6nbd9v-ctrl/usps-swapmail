@@ -103,3 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+function testJS() {
+    alert("JavaScript is working! ✅");
+}
