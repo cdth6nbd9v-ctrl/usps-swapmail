@@ -37,38 +37,31 @@
             </div>
         </div>
         
-        <!-- Animation Container -->
-       <!-- Updated SVG Animation -->
-<div class="animation-container">
-    <svg width="420" height="280" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" role="img">
-        <title id="title">Two USPS Mail Carriers Exchanging Letter</title>
-        <desc id="desc">Animated illustration of a male and female mail carrier happily swapping a letter.</desc>
-        
+<div class="animation-container" style="text-align:center;">
+    <svg width="460" height="320" viewBox="0 0 460 320" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Left Carrier -->
-        <g id="left-carrier">
-            <circle cx="110" cy="90" r="35" fill="#f4a261"/> <!-- Head -->
-            <rect x="75" y="125" width="70" height="100" rx="15" fill="#1e88e5"/> <!-- Body -->
-            <polygon points="80,160 55,190 80,195" fill="#1e88e5"/> <!-- Arm -->
-            <circle cx="110" cy="215" r="22" fill="#2c3e50"/> <!-- Legs -->
+        <g>
+            <circle cx="120" cy="100" r="38" fill="#FFDBB4"/>
+            <rect x="75" y="135" width="85" height="110" rx="20" fill="#1565C0"/>
+            <rect x="85" y="240" width="25" height="45" fill="#1C2526"/>
+            <!-- Arm -->
+            <line x1="110" y1="165" x2="70" y2="200" stroke="#FFDBB4" stroke-width="28" stroke-linecap="round"/>
         </g>
 
         <!-- Right Carrier -->
-        <g id="right-carrier">
-            <circle cx="310" cy="90" r="35" fill="#f4a261"/> <!-- Head -->
-            <rect x="275" y="125" width="70" height="100" rx="15" fill="#e91e63"/> <!-- Body -->
-            <polygon points="340,160 365,190 340,195" fill="#e91e63"/> <!-- Arm -->
-            <circle cx="310" cy="215" r="22" fill="#2c3e50"/> <!-- Legs -->
+        <g>
+            <circle cx="340" cy="100" r="38" fill="#FFDBB4"/>
+            <rect x="295" y="135" width="85" height="110" rx="20" fill="#E91E63"/>
+            <rect x="350" y="240" width="25" height="45" fill="#1C2526"/>
+            <!-- Arm -->
+            <line x1="350" y1="165" x2="390" y2="200" stroke="#FFDBB4" stroke-width="28" stroke-linecap="round"/>
         </g>
 
-        <!-- Letter -->
-        <g id="letter-group">
-            <rect id="envelope" x="185" y="110" width="50" height="38" rx="4" fill="#fff" stroke="#d32f2f" stroke-width="6"/>
-            <path id="flap" d="M185 125 L210 145 L235 125" fill="#ff9800"/>
+        <!-- Moving Letter -->
+        <g id="letter">
+            <rect x="195" y="125" width="70" height="55" rx="8" fill="#FFFFFF" stroke="#D32F2F" stroke-width="12"/>
+            <path d="M195 145 L230 170 L265 145" fill="#FF9800"/>
         </g>
-
-        <!-- Smiles -->
-        <path d="M95 95 Q110 105 125 95" fill="none" stroke="#d32f2f" stroke-width="4" stroke-linecap="round"/>
-        <path d="M295 95 Q310 105 325 95" fill="none" stroke="#d32f2f" stroke-width="4" stroke-linecap="round"/>
     </svg>
 </div>
             
