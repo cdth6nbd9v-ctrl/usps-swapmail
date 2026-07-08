@@ -38,18 +38,39 @@
         </div>
         
         <!-- Animation Container -->
-        <div class="animation-container">
-            <div class="mail-carrier left">
-                <div class="carrier-figure">
-                    <div class="head">👨‍✈️</div>
-                    <div class="body">📬</div>
-                </div>
-                <div class="arm left-arm">🤚</div>
-            </div>
-            
-            <div class="letter-exchange">
-                <div id="letter" class="letter">✉️</div>
-            </div>
+       <!-- Updated SVG Animation -->
+<div class="animation-container">
+    <svg width="420" height="280" viewBox="0 0 420 280" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title desc" role="img">
+        <title id="title">Two USPS Mail Carriers Exchanging Letter</title>
+        <desc id="desc">Animated illustration of a male and female mail carrier happily swapping a letter.</desc>
+        
+        <!-- Left Carrier -->
+        <g id="left-carrier">
+            <circle cx="110" cy="90" r="35" fill="#f4a261"/> <!-- Head -->
+            <rect x="75" y="125" width="70" height="100" rx="15" fill="#1e88e5"/> <!-- Body -->
+            <polygon points="80,160 55,190 80,195" fill="#1e88e5"/> <!-- Arm -->
+            <circle cx="110" cy="215" r="22" fill="#2c3e50"/> <!-- Legs -->
+        </g>
+
+        <!-- Right Carrier -->
+        <g id="right-carrier">
+            <circle cx="310" cy="90" r="35" fill="#f4a261"/> <!-- Head -->
+            <rect x="275" y="125" width="70" height="100" rx="15" fill="#e91e63"/> <!-- Body -->
+            <polygon points="340,160 365,190 340,195" fill="#e91e63"/> <!-- Arm -->
+            <circle cx="310" cy="215" r="22" fill="#2c3e50"/> <!-- Legs -->
+        </g>
+
+        <!-- Letter -->
+        <g id="letter-group">
+            <rect id="envelope" x="185" y="110" width="50" height="38" rx="4" fill="#fff" stroke="#d32f2f" stroke-width="6"/>
+            <path id="flap" d="M185 125 L210 145 L235 125" fill="#ff9800"/>
+        </g>
+
+        <!-- Smiles -->
+        <path d="M95 95 Q110 105 125 95" fill="none" stroke="#d32f2f" stroke-width="4" stroke-linecap="round"/>
+        <path d="M295 95 Q310 105 325 95" fill="none" stroke="#d32f2f" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+</div>
             
             <div class="mail-carrier right">
                 <div class="carrier-figure">
