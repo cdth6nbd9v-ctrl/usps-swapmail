@@ -6,7 +6,14 @@ const supabase = Supabase.createClient(supabaseUrl, supabaseAnonKey);
 let currentUser = null;
 
 function showLoginModal() {
-    document.getElementById('login-modal').style.display = 'flex';
+    let modal = document.getElementById('login-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        modal.style.zIndex = '99999';
+        console.log("Modal should be visible now");
+    } else {
+        alert("Modal HTML not found");
+    }
 }
 
 function hideLoginModal() {
