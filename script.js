@@ -6,14 +6,7 @@ const supabase = Supabase.createClient(supabaseUrl, supabaseAnonKey);
 let currentUser = null;
 
 function showLoginModal() {
-    let modal = document.getElementById('login-modal');
-    if (modal) {
-        modal.style.display = 'flex';
-        modal.style.zIndex = '99999';
-        console.log("Modal should be visible now");
-    } else {
-        alert("Modal HTML not found");
-    }
+    document.getElementById('login-modal').style.display = 'flex';
 }
 
 function hideLoginModal() {
@@ -34,10 +27,9 @@ async function handleAuth() {
         let { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
         if (error) {
-            // Try signup
             const { data: signUpData, error: signUpError } = await supabase.auth.signUp({ email, password });
             if (signUpError) throw signUpError;
-            messageEl.textContent = "Account created! Please check your email.";
+            messageEl.textContent = "Account created! Check your email.";
             messageEl.style.color = "green";
         } else {
             currentUser = data.user;
@@ -55,22 +47,10 @@ async function handleAuth() {
 }
 
 function updateAuthUI() {
-    const authDiv = document.getElementById('auth-buttons');
-    if (currentUser) {
-        authDiv.innerHTML = `
-            <span style="color:white;">Hi, ${currentUser.email}</span>
-            <button class="btn-primary" onclick="logout()">Logout</button>
-        `;
-    }
+    // Add your navbar update here later
+    console.log("User logged in:", currentUser);
 }
 
-async function logout() {
-    await supabase.auth.signOut();
-    currentUser = null;
-    document.getElementById('auth-buttons').innerHTML = `<button class="btn-primary" onclick="showLoginModal()">Login / Sign Up</button>`;
-}
-
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("✅ SwapMail with Auth loaded!");
+    console.log("✅ SwapMail with Supabase loaded!");
 });
