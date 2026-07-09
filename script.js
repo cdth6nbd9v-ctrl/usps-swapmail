@@ -1,7 +1,3 @@
-// const supabaseUrl = ... 
-// const supabaseAnonKey = ...
-// const supabase = ...
-
 let currentUser = null;
 
 function showLoginModal() {
@@ -12,8 +8,8 @@ function hideLoginModal() {
     document.getElementById('login-modal').style.display = 'none';
 }
 
-async function handleAuth() {
-    alert("handleAuth called! Supabase not connected yet.");
+function handleAuth() {
+    alert("handleAuth called! Good progress!");
 }
 
 document.addEventListener('DOMContentLoaded', () => {
