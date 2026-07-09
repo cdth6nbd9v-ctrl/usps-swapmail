@@ -60,13 +60,27 @@
 
     </script>
 
-    <script>
+  <script>
 function showLoginModal() {
     document.getElementById('login-modal').style.display = 'flex';
 }
 
 function hideLoginModal() {
     document.getElementById('login-modal').style.display = 'none';
+}
+
+async function handleAuth() {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const messageEl = document.getElementById('auth-message');
+
+    if (!email || !password) {
+        messageEl.textContent = "Please enter email and password";
+        return;
+    }
+
+    alert("Demo Login - In real app this would connect to Supabase");
+    hideLoginModal();
 }
 </script>
     
