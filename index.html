@@ -60,7 +60,22 @@
 
     </script>
 
-  <script>
+ <script>
+const supabaseUrl = 'https://agfkbgktzqydbcbxgrou.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnZmtiZ2t0enF5ZGJjYnhncm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0ODUxMTIsImV4cCI6MjA5OTA2MTExMn0.R3wkUVxoNDidp7AfJ0vid58PifvCit08MuugdNNwq7g';
+
+const supabase = Supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+let currentUser = null;
+
+function showLoginModal() {
+    document.getElementById('login-modal').style.display = 'flex';
+}
+
+function hideLoginModal() {
+    document.getElementById('login-modal').style.display = 'none';
+}
+
 async function handleAuth() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -89,6 +104,7 @@ async function handleAuth() {
         messageEl.style.color = "red";
     }
 }
+</script>
 </script>
 
     <script>
