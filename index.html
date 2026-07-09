@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    
 </head>
 <body>
     <!-- Navigation -->
@@ -42,146 +41,67 @@
         </div>
     </section>
 
-    <!-- Live Map -->
-    <section id="map-section" class="section">
-        <h2>Live Transfer Map</h2>
-        <p class="map-subtitle">See where carriers want to move across the country. Click markers for details.</p>
-        <div id="transfer-map" style="height: 500px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);"></div>
-    </section>
-
-    <!-- How it Works -->
-    <section id="how-it-works" class="section">
-        <h2>How Mutual Transfers Work</h2>
-        <div class="steps">
-            <div class="step">
-                <div class="step-number">1</div>
-                <h3>Post Your Request</h3>
-                <p>Share your current location and desired swap city/route.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <h3>Match with Carriers</h3>
-                <p>Browse verified USPS workers looking for the same swap.</p>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <h3>Connect & Coordinate</h3>
-                <p>Chat securely and handle official paperwork together.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Find Transfers -->
-    <section id="find-transfers" class="section bg-light">
-        <h2>Available Mutual Transfers</h2>
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search by city, state, or route...">
-            <button onclick="filterTransfers()">Search</button>
-        </div>
-        <div id="transfers-list" class="transfers-grid">
-            <!-- Populated by JS -->
-        </div>
-    </section>
-
-    <!-- Post Request -->
-    <section id="post-request" class="section">
-        <h2>Post Your Transfer Request</h2>
-        <form id="transfer-form" class="transfer-form">
-            <div class="form-group">
-                <label>Current Location (City, State)</label>
-                <input type="text" id="current-loc" placeholder="e.g. Chicago, IL" required>
-            </div>
-            <div class="form-group">
-                <label>Desired Location (City, State)</label>
-                <input type="text" id="desired-loc" placeholder="e.g. Denver, CO" required>
-            </div>
-            <div class="form-group">
-                <label>Route/Position Details</label>
-                <textarea id="details" placeholder="Carrier, clerk, etc. Preferred routes..."></textarea>
-            </div>
-            <div class="form-group">
-                <label>Contact Email or Phone</label>
-                <input type="text" id="contact" placeholder="your.email@usps.gov or phone" required>
-            </div>
-            <button type="submit" class="btn-primary">Submit Request</button>
-        </form>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="section bg-light">
-        <h2>About SwapMail</h2>
-        <p>Built by USPS carriers, for USPS carriers. We make finding mutual transfers simple and community-driven. Not affiliated with USPS, but 100% focused on helping you get where you want to be.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 SwapMail - USPS Mutual Transfer Community</p>
-        <p>Disclaimer: This is a fan-built tool. Always follow official USPS mutual transfer policies.</p>
-    </footer>
+    <!-- Other sections (add your map, how it works, etc.) -->
 
     <!-- Login Modal -->
-<div id="login-modal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="hideLoginModal()">×</span>
-        <h2>Login / Sign Up</h2>
-        <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:10px 0;">
-        <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0;">
-        <button class="btn-primary" style="width:100%; margin:10px 0;" onclick="handleAuth()">Login / Sign Up</button>
-        <p id="auth-message" style="text-align:center; margin-top:10px;"></p>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="hideLoginModal()">×</span>
+            <h2>Login / Sign Up</h2>
+            <input type="email" id="email" placeholder="USPS Email" style="width:100%; padding:12px; margin:10px 0;">
+            <input type="password" id="password" placeholder="Password" style="width:100%; padding:12px; margin:10px 0;">
+            <button class="btn-primary" style="width:100%; margin:10px 0;" onclick="handleAuth()">Login / Sign Up</button>
+            <p id="auth-message" style="text-align:center; margin-top:10px;"></p>
+        </div>
     </div>
-</div>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
     <script>
-const supabaseUrl = 'https://agfkbgktzqydbcbxgrou.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnZmtiZ2t0enF5ZGJjYnhncm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0ODUxMTIsImV4cCI6MjA5OTA2MTExMn0.R3wkUVxoNDidp7AfJ0vid58PifvCit08MuugdNNwq7g';
+        const supabaseUrl = 'https://agfkbgktzqydbcbxgrou.supabase.co';
+        const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFnZmtiZ2t0enF5ZGJjYnhncm91Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODM0ODUxMTIsImV4cCI6MjA5OTA2MTExMn0.R3wkUVxoNDidp7AfJ0vid58PifvCit08MuugdNNwq7g';
 
-const supabase = Supabase.createClient(supabaseUrl, supabaseAnonKey);
+        const supabase = Supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-let currentUser = null;
+        let currentUser = null;
 
-function showLoginModal() {
-    document.getElementById('login-modal').style.display = 'flex';
-}
-
-function hideLoginModal() {
-    document.getElementById('login-modal').style.display = 'none';
-}
-
-async function handleAuth() {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const messageEl = document.getElementById('auth-message');
-
-    if (!email || !password) {
-        messageEl.textContent = "Please enter email and password";
-        return;
-    }
-
-    try {
-        let { data, error } = await supabase.auth.signInWithPassword({ email, password });
-
-        if (error) {
-            const { data: signUpData, error: signUpError } = await supabase.auth.signUp({ email, password });
-            if (signUpError) throw signUpError;
-            messageEl.textContent = "Account created! Check your email.";
-            messageEl.style.color = "green";
-        } else {
-            currentUser = data.user;
-            messageEl.textContent = "Login successful!";
-            messageEl.style.color = "green";
-            setTimeout(() => {
-                hideLoginModal();
-            }, 1000);
+        function showLoginModal() {
+            document.getElementById('login-modal').style.display = 'flex';
         }
-    } catch (err) {
-        messageEl.textContent = "Error: " + err.message;
-        messageEl.style.color = "red";
-    }
-}
-</script>
 
-    
+        function hideLoginModal() {
+            document.getElementById('login-modal').style.display = 'none';
+        }
+
+        async function handleAuth() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const messageEl = document.getElementById('auth-message');
+
+            if (!email || !password) {
+                messageEl.textContent = "Please enter email and password";
+                return;
+            }
+
+            try {
+                let { data, error } = await supabase.auth.signInWithPassword({ email, password });
+
+                if (error) {
+                    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({ email, password });
+                    if (signUpError) throw signUpError;
+                    messageEl.textContent = "Account created! Check your email.";
+                    messageEl.style.color = "green";
+                } else {
+                    currentUser = data.user;
+                    messageEl.textContent = "Login successful!";
+                    messageEl.style.color = "green";
+                    setTimeout(() => hideLoginModal(), 1000);
+                }
+            } catch (err) {
+                messageEl.textContent = "Error: " + err.message;
+                messageEl.style.color = "red";
+            }
+        }
+    </script>
 </body>
 </html>
