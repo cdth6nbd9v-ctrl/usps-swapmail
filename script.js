@@ -48,7 +48,6 @@ async function handleAuth() {
 
 function updateAuthUI() {
     console.log("User logged in:", currentUser);
-    // You can update navbar here later
 }
 
 document.addEventListener('DOMContentLoaded', () => {
