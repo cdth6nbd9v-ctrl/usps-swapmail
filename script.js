@@ -47,7 +47,6 @@ async function handleAuth() {
 }
 
 function updateAuthUI() {
-    // Add your navbar update here later
     console.log("User logged in:", currentUser);
 }
 
